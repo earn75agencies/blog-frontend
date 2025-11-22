@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { FiBook, FiSearch, FiFilter, FiTag, FiPin, FiTrash2, FiEdit3 } from 'react-icons/fi';
-import { useTranslation } from 'react-i18next';
+import { FiBook, FiSearch, FiFilter, FiTag, FiMapPin, FiTrash2 } from 'react-icons/fi';
 import noteService, { Note } from '../services/note.service';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import Card from '../components/ui/Card';
@@ -11,7 +10,6 @@ import { useMutation, useQueryClient } from 'react-query';
 import toast from 'react-hot-toast';
 
 const NotesPage = () => {
-  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<string>('all');
   const [page, setPage] = useState(1);
@@ -126,7 +124,7 @@ const NotesPage = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     {note.isPinned && (
-                      <FiPin className="text-primary-600" title="Pinned" />
+                      <FiMapPin className="text-primary-600" title="Pinned" />
                     )}
                     <span className="text-xs px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded">
                       {note.type}
@@ -174,7 +172,7 @@ const NotesPage = () => {
                     className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
                     title={note.isPinned ? 'Unpin' : 'Pin'}
                   >
-                    <FiPin className={note.isPinned ? 'text-primary-600' : 'text-gray-400'} />
+                    <FiMapPin className={note.isPinned ? 'text-primary-600' : 'text-gray-400'} />
                   </button>
                   <button
                     onClick={() => handleDelete(note._id)}

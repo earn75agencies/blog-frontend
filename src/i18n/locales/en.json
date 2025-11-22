@@ -34,7 +34,11 @@
     "profile": "Profile",
     "dashboard": "Dashboard",
     "settings": "Settings",
-    "language": "Language"
+    "language": "Language",
+    "admin": "Admin Panel",
+    "browseCategories": "Browse Categories",
+    "more": "More",
+    "search": "Search"
   },
   "auth": {
     "login": "Login",
@@ -152,6 +156,49 @@
     "totalViews": "Total Views",
     "totalLikes": "Total Likes",
     "totalComments": "Total Comments"
+  },
+  "footer": {
+    "stayUpdated": "Stay Updated",
+    "getLatestPosts": "Get the latest posts delivered to your inbox",
+    "emailAddress": "Your email address",
+    "subscribe": "Subscribe",
+    "thankYouSubscribe": "Thank you for subscribing!",
+    "gidixDescription": "Share your stories with the world. The ultimate international blogging platform for creators and thought leaders.",
+    "content": "Content",
+    "allPosts": "All Posts",
+    "platform": "Platform",
+    "aboutUs": "About Us",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "cookiePolicy": "Cookie Policy",
+    "connect": "Connect",
+    "sitemap": "Sitemap",
+    "copyright": "All rights reserved."
+  },
+  "messages": {
+    "noPostsFound": "No posts found",
+    "noPostsMatch": "No posts match",
+    "noPostsCategory": "No posts in this category yet",
+    "startExploring": "Start exploring or create your first post!",
+    "browseAll": "Browse All",
+    "clearFilters": "Clear Filters",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Subscribe to get the latest posts and updates delivered to your inbox.",
+    "enterEmail": "Enter your email",
+    "pleaseEnterEmail": "Please enter your email address",
+    "subscribing": "Subscribing...",
+    "subscribedSuccess": "Successfully subscribed to newsletter!",
+    "subscribeFailed": "Failed to subscribe. Please try again.",
+    "popularCategories": "Popular Categories",
+    "exploreTopics": "Explore topics you love",
+    "adminDashboard": "Admin Dashboard",
+    "analyticsDashboard": "Analytics Dashboard",
+    "failedToLoadDashboard": "Failed to load dashboard data",
+    "last7Days": "Last 7 days",
+    "last30Days": "Last 30 days",
+    "last90Days": "Last 90 days",
+    "lastYear": "Last year"
   }
 }
 

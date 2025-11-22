@@ -1,6 +1,7 @@
 import apiService from './api.service';
 import { API_ENDPOINTS } from '../config/api.config';
-import { Post, ApiResponse, Pagination, QueryParams } from '../types';
+import { Post, ApiResponse, Pagination, QueryParams, Category } from '../types';
+import { categoryService } from './category.service';
 
 export interface CreatePostData {
   title: string;
@@ -55,8 +56,27 @@ class PostService {
   }
 
   async createPost(data: CreatePostData, file?: File): Promise<Post> {
+    // If category is a name (not a MongoDB ID), fetch its ID first
+    let categoryId = data.category;
+    if (categoryId && !categoryId.match(/^[0-9a-fA-F]{24}$/)) {
+      // Category appears to be a name, not an ID - fetch the category first
+      try {
+        const categories = await categoryService.getCategories();
+        const category = categories.find(
+          (cat: Category) => cat.name.toLowerCase() === categoryId.toLowerCase()
+        );
+        if (category) {
+          categoryId = category._id;
+        } else {
+          throw new Error(`Category "${categoryId}" not found`);
+        }
+      } catch (error) {
+        throw new Error(`Failed to find category: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    }
+
     const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries({ ...data, category: categoryId }).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
         if (Array.isArray(value)) {
           value.forEach((item) => formData.append(key, item));
@@ -82,8 +102,26 @@ class PostService {
   }
 
   async updatePost(id: string, data: UpdatePostData, file?: File): Promise<Post> {
+    // If category is provided and it's a name (not a MongoDB ID), fetch its ID first
+    let updateData = { ...data };
+    if (updateData.category && !updateData.category.match(/^[0-9a-fA-F]{24}$/)) {
+      try {
+        const categories = await categoryService.getCategories();
+        const category = categories.find(
+          (cat: Category) => cat.name.toLowerCase() === updateData.category!.toLowerCase()
+        );
+        if (category) {
+          updateData.category = category._id;
+        } else {
+          throw new Error(`Category "${updateData.category}" not found`);
+        }
+      } catch (error) {
+        throw new Error(`Failed to find category: ${error instanceof Error ? error.message : String(error)}`);
+      }
+    }
+
     const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries(updateData).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
         if (Array.isArray(value)) {
           value.forEach((item) => formData.append(key, item));

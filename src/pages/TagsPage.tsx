@@ -62,10 +62,10 @@ const TagsPage = () => {
             ))}
           </div>
 
-          {pagination && pagination.totalPages > 1 && (
+          {pagination && pagination.pages > 1 && (
             <Pagination
               currentPage={page}
-              totalPages={pagination.totalPages}
+              totalPages={pagination.pages}
               onPageChange={setPage}
             />
           )}

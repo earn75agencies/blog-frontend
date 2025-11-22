@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Post } from '../../types';
 import { useTranslation } from 'react-i18next';
 import PostCard from './PostCard';

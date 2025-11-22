@@ -143,7 +143,10 @@ export const useAutosave = ({
         } else {
           // Fallback: synchronous save (may block navigation)
           debouncedSave.cancel();
-          onSave(dataRef.current).catch(console.error);
+          const result = onSave(dataRef.current);
+          if (result && typeof result.catch === 'function') {
+            result.catch(console.error);
+          }
         }
       }
     };

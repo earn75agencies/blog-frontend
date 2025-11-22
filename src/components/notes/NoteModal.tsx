@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import toast from 'react-hot-toast';
-import { FiX, FiTag, FiBookmark, FiEdit3, FiTrash2 } from 'react-icons/fi';
+import { FiX, FiTag } from 'react-icons/fi';
 import noteService, { Note, CreateNoteData } from '../../services/note.service';
 import Card from '../ui/Card';
 import Button from '../ui/Button';

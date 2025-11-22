@@ -28,7 +28,7 @@ const ContactPage = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      const response = await apiService.post(API_ENDPOINTS.CONTACT.SEND(), data);
+      const response = (await apiService.post(API_ENDPOINTS.CONTACT.SEND(), data)) as any;
 
       if (response.status !== 'success') {
         throw new Error(response.message || 'Failed to send message');

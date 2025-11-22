@@ -60,7 +60,7 @@ const noteService = {
    * Get notes for a specific post
    */
   getPostNotes: async (postId: string): Promise<Note[]> => {
-    const response = await api.get(`/notes/post/${postId}`);
+    const response = (await api.get(`/notes/post/${postId}`)) as any;
     return response.data.data.notes;
   },
 
@@ -74,7 +74,7 @@ const noteService = {
     page?: number;
     limit?: number;
   }): Promise<{ notes: Note[]; pagination: any }> => {
-    const response = await api.get('/notes', { params });
+    const response = (await api.get('/notes', { params })) as any;
     return response.data.data;
   },
 
@@ -82,7 +82,7 @@ const noteService = {
    * Get single note
    */
   getNote: async (noteId: string): Promise<Note> => {
-    const response = await api.get(`/notes/${noteId}`);
+    const response = (await api.get(`/notes/${noteId}`)) as any;
     return response.data.data.note;
   },
 
@@ -90,7 +90,7 @@ const noteService = {
    * Create note for a post
    */
   createNote: async (postId: string, data: CreateNoteData): Promise<Note> => {
-    const response = await api.post(`/notes/post/${postId}`, data);
+    const response = (await api.post(`/notes/post/${postId}`, data)) as any;
     return response.data.data.note;
   },
 
@@ -98,7 +98,7 @@ const noteService = {
    * Update note
    */
   updateNote: async (noteId: string, data: UpdateNoteData): Promise<Note> => {
-    const response = await api.put(`/notes/${noteId}`, data);
+    const response = (await api.put(`/notes/${noteId}`, data)) as any;
     return response.data.data.note;
   },
 
@@ -113,7 +113,7 @@ const noteService = {
    * Toggle note pin
    */
   togglePin: async (noteId: string): Promise<{ note: Note; isPinned: boolean }> => {
-    const response = await api.patch(`/notes/${noteId}/pin`);
+    const response = (await api.patch(`/notes/${noteId}/pin`)) as any;
     return response.data.data;
   },
 
@@ -121,7 +121,7 @@ const noteService = {
    * Search notes
    */
   searchNotes: async (query: string): Promise<Note[]> => {
-    const response = await api.get('/notes/search', { params: { q: query } });
+    const response = (await api.get('/notes/search', { params: { q: query } })) as any;
     return response.data.data.notes;
   },
 
@@ -129,7 +129,7 @@ const noteService = {
    * Get note statistics
    */
   getNoteStats: async (): Promise<NoteStats> => {
-    const response = await api.get('/notes/stats');
+    const response = (await api.get('/notes/stats')) as any;
     return response.data.data;
   },
 };

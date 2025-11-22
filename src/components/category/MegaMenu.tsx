@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import categoryService from '../../services/category.service';
-import { Category } from '../../types';
 import { FiChevronDown, FiX } from 'react-icons/fi';
 
 interface MegaMenuProps {
@@ -10,7 +9,6 @@ interface MegaMenuProps {
 }
 
 const MegaMenu = ({ onClose }: MegaMenuProps) => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 

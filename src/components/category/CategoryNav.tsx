@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import categoryService from '../../services/category.service';
-import { Category } from '../../types';
 import { FiChevronDown } from 'react-icons/fi';
 import MegaMenu from './MegaMenu';
 

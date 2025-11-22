@@ -11,15 +11,9 @@ const LikedPostsPage = () => {
   const { t } = useTranslation();
 
   const { data: likedPosts, isLoading } = useQuery<Post[]>('likedPosts', async () => {
-    const response = await postService.getPosts({});
-    // Filter posts that user has liked
-    // Note: This assumes the API returns a 'liked' field or we need a separate endpoint
-    // If backend has /api/users/me/liked-posts endpoint, use that instead
-    const allPosts = response.posts;
-    // Fetch user's liked posts from backend endpoint
     try {
       const apiService = (await import('../services/api.service')).default;
-      const response = await apiService.get('/api/users/me/liked-posts');
+      const response = (await apiService.get('/api/users/me/liked-posts')) as any;
       return response.data?.posts || [];
     } catch (error) {
       // Fallback: return empty array if endpoint doesn't exist yet

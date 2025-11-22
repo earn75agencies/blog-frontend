@@ -11,7 +11,7 @@ interface NoteButtonProps {
 const NoteButton = ({ postId, onNotesClick }: NoteButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data: notes, refetch } = useQuery(
+  const { data: notes } = useQuery(
     ['notes', postId],
     () => noteService.getPostNotes(postId),
     { enabled: !!postId }

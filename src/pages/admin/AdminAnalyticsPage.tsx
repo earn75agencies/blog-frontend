@@ -33,16 +33,16 @@ const AdminAnalyticsPage = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Analytics Dashboard</h1>
+        <h1 className="text-3xl font-bold">{t('messages.analyticsDashboard')}</h1>
         <select
           value={days}
           onChange={(e) => setDays(parseInt(e.target.value))}
           className="input w-32"
         >
-          <option value={7}>Last 7 days</option>
-          <option value={30}>Last 30 days</option>
-          <option value={90}>Last 90 days</option>
-          <option value={365}>Last year</option>
+          <option value={7}>{t('messages.last7Days')}</option>
+          <option value={30}>{t('messages.last30Days')}</option>
+          <option value={90}>{t('messages.last90Days')}</option>
+          <option value={365}>{t('messages.lastYear')}</option>
         </select>
       </div>
 

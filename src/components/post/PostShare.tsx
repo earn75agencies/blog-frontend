@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiShare2, FiTwitter, FiFacebook, FiLink, FiMail } from 'react-icons/fi';
+import { FiTwitter, FiFacebook, FiLink, FiMail } from 'react-icons/fi';
 
 interface PostShareProps {
   postId: string;

@@ -34,7 +34,11 @@
     "profile": "Perfil",
     "dashboard": "Panel",
     "settings": "Configuración",
-    "language": "Idioma"
+    "language": "Idioma",
+    "admin": "Panel de administración",
+    "browseCategories": "Explorar categorías",
+    "more": "Más",
+    "search": "Buscar"
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -152,6 +156,49 @@
     "totalViews": "Total de vistas",
     "totalLikes": "Total de me gusta",
     "totalComments": "Total de comentarios"
+  },
+  "footer": {
+    "stayUpdated": "Mantente actualizado",
+    "getLatestPosts": "Recibe las últimas publicaciones en tu bandeja de entrada",
+    "emailAddress": "Tu dirección de correo",
+    "subscribe": "Suscribirse",
+    "thankYouSubscribe": "¡Gracias por suscribirte!",
+    "gidixDescription": "Comparte tus historias con el mundo. La plataforma de blogs internacional definitiva para creadores y líderes de opinión.",
+    "content": "Contenido",
+    "allPosts": "Todas las publicaciones",
+    "platform": "Plataforma",
+    "aboutUs": "Acerca de nosotros",
+    "legal": "Legal",
+    "privacyPolicy": "Política de privacidad",
+    "termsConditions": "Términos y condiciones",
+    "cookiePolicy": "Política de cookies",
+    "connect": "Conectar",
+    "sitemap": "Mapa del sitio",
+    "copyright": "Todos los derechos reservados."
+  },
+  "messages": {
+    "noPostsFound": "No se encontraron publicaciones",
+    "noPostsMatch": "No hay publicaciones que coincidan con",
+    "noPostsCategory": "Aún no hay publicaciones en esta categoría",
+    "startExploring": "¡Comienza a explorar o crea tu primera publicación!",
+    "browseAll": "Ver todas",
+    "clearFilters": "Limpiar filtros",
+    "newsletter": "Boletín",
+    "newsletterDesc": "Suscribirse para recibir las últimas publicaciones y actualizaciones en tu bandeja de entrada.",
+    "enterEmail": "Introduce tu correo electrónico",
+    "pleaseEnterEmail": "Por favor introduce tu dirección de correo electrónico",
+    "subscribing": "Suscribiendo...",
+    "subscribedSuccess": "¡Suscripción al boletín realizada con éxito!",
+    "subscribeFailed": "No se pudo suscribir. Por favor, inténtalo de nuevo.",
+    "popularCategories": "Categorías populares",
+    "exploreTopics": "Explora temas que te encanten",
+    "adminDashboard": "Panel de administración",
+    "analyticsDashboard": "Panel de análisis",
+    "failedToLoadDashboard": "Error al cargar los datos del panel",
+    "last7Days": "Últimos 7 días",
+    "last30Days": "Últimos 30 días",
+    "last90Days": "Últimos 90 días",
+    "lastYear": "Último año"
   }
 }
 

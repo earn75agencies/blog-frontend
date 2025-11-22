@@ -26,7 +26,7 @@ const PostFilters: React.FC<PostFiltersProps> = ({
     sortBy: 'newest',
   });
 
-  const handleFilterChange = (key: keyof FilterState, value: string) => {
+  const handleFilterChange = (key: keyof FilterState, value: string | undefined) => {
     const newFilters = { ...filters, [key]: value };
     setFilters(newFilters);
     onFilterChange(newFilters);
@@ -92,10 +92,8 @@ const PostFilters: React.FC<PostFiltersProps> = ({
           <Select
             value={filters.sortBy || 'newest'}
             onChange={(e) => {
-              const value = e.target.value;
-              if (value) {
-                handleFilterChange('sortBy', value as FilterState['sortBy']);
-              }
+              const value = e.target.value || 'newest';
+              handleFilterChange('sortBy', value);
             }}
             options={[
               { value: 'newest', label: 'Newest First' },
@@ -109,9 +107,7 @@ const PostFilters: React.FC<PostFiltersProps> = ({
             value={filters.status || ''}
             onChange={(e) => {
               const value = e.target.value;
-              if (value) {
-                handleFilterChange('status', value as FilterState['status']);
-              }
+              handleFilterChange('status', value);
             }}
             placeholder="All Status"
             options={[
