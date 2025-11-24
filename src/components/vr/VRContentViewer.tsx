@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { vrContentService, VRContent, VR3DModel, SpatialAudio } from '../../services/vr-content.service';
 import { FiLoader, FiPlay, FiHeadphones, FiBox, FiSettings, FiDownload, FiShare2, FiHeart } from 'react-icons/fi';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 interface VRContentViewerProps {}
 
@@ -125,7 +126,7 @@ export default function VRContentViewer({}: VRContentViewerProps) {
 
   const load3DModel = (model: VR3DModel, scene: any) => {
     // Load 3D model using Three.js
-    const loader = new THREE.GLTFLoader();
+    const loader = new GLTFLoader();
     loader.load(model.modelUrl, (gltf: any) => {
       const object = gltf.scene;
       object.position.set(
@@ -143,7 +144,7 @@ export default function VRContentViewer({}: VRContentViewerProps) {
     const sound = new THREE.PositionalAudio(listener);
 
     const audioElement = new Audio(audio.audioUrl);
-    sound.setNode(audioElement);
+    sound.setMediaElementSource(audioElement);
     
     // Set 3D position
     if (audio.spatialSettings?.position3D) {

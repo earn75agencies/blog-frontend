@@ -18,7 +18,7 @@ const EventManager: React.FC<EventManagerProps> = ({ userId }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [selectedFormat, setSelectedFormat] = useState('');
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+  const [priceRange, setPriceRange] = useState<string>('all');
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   useEffect(() => {

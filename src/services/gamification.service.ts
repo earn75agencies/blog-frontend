@@ -126,7 +126,7 @@ class GamificationService {
   }
 
   async getAllBadges(): Promise<Badge[]> {
-    const response = await apiClient.get(API_ENDPOINTS.GAMIFICATION.BADGES);
+    const response = await apiClient.get(API_ENDPOINTS.GAMIFICATION.BADGES());
     return response.data;
   }
 
@@ -136,7 +136,7 @@ class GamificationService {
   }
 
   async getActiveChallenges(): Promise<Challenge[]> {
-    const response = await apiClient.get(API_ENDPOINTS.GAMIFICATION.CHALLENGES);
+    const response = await apiClient.get(API_ENDPOINTS.GAMIFICATION.CHALLENGES());
     return response.data;
   }
 
@@ -158,7 +158,7 @@ class GamificationService {
   }
 
   async getAvailableRewards(): Promise<Reward[]> {
-    const response = await apiClient.get(API_ENDPOINTS.GAMIFICATION.REWARDS);
+    const response = await apiClient.get(API_ENDPOINTS.GAMIFICATION.REWARDS());
     return response.data;
   }
 

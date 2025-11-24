@@ -110,7 +110,7 @@ const EventDetailPage = () => {
                 <FiCalendar className="text-primary-600 mt-1" />
                 <div>
                   <p className="font-medium">{t('events.date') || 'Date'}</p>
-                  <p className="text-gray-600">{new Date(event.date).toLocaleDateString()}</p>
+                  <p className="text-gray-600">{new Date(event.date || event.startDate).toLocaleDateString()}</p>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@ const EventDetailPage = () => {
                 <div>
                   <p className="font-medium">{t('events.time') || 'Time'}</p>
                   <p className="text-gray-600">
-                    {new Date(event.date).toLocaleTimeString([], {
+                    {new Date(event.date || event.startDate).toLocaleTimeString([], {
                       hour: '2-digit',
                       minute: '2-digit',
                     })}
@@ -132,7 +132,7 @@ const EventDetailPage = () => {
                 <div>
                   <p className="font-medium">{t('events.location') || 'Location'}</p>
                   <p className="text-gray-600">
-                    {event.virtualLocation || event.location}
+                    {event.virtualLocation || (typeof event.location === 'string' ? event.location : event.location?.venue || 'TBD')}
                   </p>
                   {event.virtualLocation && (
                     <Badge variant="info" className="mt-1">

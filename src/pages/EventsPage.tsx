@@ -72,15 +72,15 @@ const EventsPage = () => {
               <div className="space-y-2 text-sm text-gray-500 mb-4">
                 <div className="flex items-center gap-2">
                   <FiCalendar />
-                  <span>{new Date(event.date).toLocaleDateString()}</span>
+                  <span>{new Date(event.date || event.startDate).toLocaleDateString()}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FiClock />
-                  <span>{new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                  <span>{new Date(event.date || event.startDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FiMapPin />
-                  <span>{event.virtualLocation || event.location}</span>
+                  <span>{event.virtualLocation || (typeof event.location === 'string' ? event.location : event.location?.venue || 'TBD')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FiUsers />

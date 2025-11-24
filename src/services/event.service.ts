@@ -50,7 +50,7 @@ export interface Event {
   agenda: EventAgendaItem[];
   speakers: EventSpeaker[];
   sponsors: EventSponsor[];
-  status: 'draft' | 'published' | 'cancelled' | 'completed';
+  status: 'draft' | 'published' | 'cancelled' | 'completed' | 'upcoming';
   createdAt: string;
   updatedAt: string;
   // Legacy properties for backward compatibility
