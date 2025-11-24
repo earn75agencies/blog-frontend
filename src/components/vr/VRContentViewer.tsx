@@ -278,6 +278,7 @@ export default function VRContentViewer({}: VRContentViewerProps) {
                   />
                 )}
               </div>
+            </div>
               
               <button
                 onClick={enterVRMode}
