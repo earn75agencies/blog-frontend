@@ -198,7 +198,7 @@ class GamificationService {
     description: string;
     createdAt: string;
   }[]> {
-    const response = await apiClient.get(`${API_ENDPOINTS.GAMIFICATIONS.POINTS_HISTORY}/${userId}`, {
+    const response = await apiClient.get(`${API_ENDPOINTS.GAMIFICATION.POINTS_HISTORY}/${userId}`, {
       params: { limit }
     });
     return response.data;

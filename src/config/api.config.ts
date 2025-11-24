@@ -243,16 +243,7 @@ export const API_ENDPOINTS = {
     WEBHOOK: () => `${API_BASE_URL}/payments/webhook`,
   },
 
-  // Events
-  EVENTS: {
-    LIST: () => `${API_BASE_URL}/events`,
-    GET: (id: string) => `${API_BASE_URL}/events/${id}`,
-    CREATE: () => `${API_BASE_URL}/events`,
-    UPDATE: (id: string) => `${API_BASE_URL}/events/${id}`,
-    DELETE: (id: string) => `${API_BASE_URL}/events/${id}`,
-    REGISTER: (id: string) => `${API_BASE_URL}/events/${id}/register`,
-    CANCEL_REGISTRATION: (id: string) => `${API_BASE_URL}/events/${id}/register`,
-  },
+
 
   // SEO
   SEO: {

@@ -94,7 +94,7 @@ const EventManager: React.FC<EventManagerProps> = ({ userId }) => {
         category: selectedCategory,
         type: selectedType,
         format: selectedFormat,
-        priceRange,
+        free: priceRange === 'free',
       });
       setEvents(response.events);
     } catch (error) {

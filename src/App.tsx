@@ -22,7 +22,7 @@ import AdminUsersPage from './pages/admin/AdminUsersPage';
 import AdminPostsPage from './pages/admin/AdminPostsPage';
 import AdminSettingsPage from './pages/admin/AdminSettingsPage';
 import AdminAnalyticsPage from './pages/admin/AdminAnalyticsPage';
-import AdminLayout from './components/admin/AdminLayout';
+import AdminLayout from './components/analytics/admin/AdminLayout';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import NotFoundPage from './pages/NotFoundPage';
 import ErrorBoundary from './components/ui/ErrorBoundary';

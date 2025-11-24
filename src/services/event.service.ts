@@ -3,6 +3,7 @@ import { API_ENDPOINTS } from '../config/api.config';
 import { ApiResponse, Pagination } from '../types';
 
 export interface Event {
+  _id: string;
   id: string;
   title: string;
   description: string;
@@ -28,6 +29,7 @@ export interface Event {
       lng: number;
     };
   };
+  virtualLocation?: string;
   onlineDetails?: {
     platform: string;
     meetingUrl: string;
@@ -48,11 +50,11 @@ export interface Event {
   agenda: EventAgendaItem[];
   speakers: EventSpeaker[];
   sponsors: EventSponsor[];
+  status: 'draft' | 'published' | 'cancelled' | 'completed';
   createdAt: string;
   updatedAt: string;
   // Legacy properties for backward compatibility
   date?: Date;
-  endDate?: Date;
   attendees?: number;
   maxAttendees?: number;
   image?: string;
@@ -161,8 +163,8 @@ export interface CreateEventData {
   requirements: string[];
   // Legacy properties for backward compatibility
   date?: Date;
-  endDate?: Date;
-  location?: string;
+  legacyEndDate?: Date;
+  legacyLocation?: string;
   virtualLocation?: string;
   maxAttendees?: number;
   registrationRequired?: boolean;

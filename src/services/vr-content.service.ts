@@ -173,7 +173,11 @@ export const vrContentService = {
     compatibility?: string;
     interactive?: boolean;
   }): Promise<{ vrContents: VRContent[] }> => {
-    const params = new URLSearchParams({ query, ...filters });
+    const params = new URLSearchParams();
+    params.append('query', query);
+    if (filters?.type) params.append('type', filters.type);
+    if (filters?.compatibility) params.append('compatibility', filters.compatibility);
+    if (filters?.interactive !== undefined) params.append('interactive', filters.interactive.toString());
     const response = await apiClient.get(`${API_ENDPOINTS.VR.CONTENT.SEARCH()}?${params}`);
     return response.data;
   },

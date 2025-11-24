@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { vrContentService, VRContent, VR3DModel, SpatialAudio } from '../../services/vr-content.service';
 import { FiLoader, FiPlay, FiHeadphones, FiBox, FiSettings, FiDownload, FiShare2, FiHeart } from 'react-icons/fi';
+import * as THREE from 'three';
 
 interface VRContentViewerProps {}
 
@@ -58,11 +59,11 @@ export default function VRContentViewer({}: VRContentViewerProps) {
       setIsVRMode(true);
       
       // In a real implementation, this would initialize WebXR
-      if (navigator.xr) {
+      if ((navigator as any).xr) {
         try {
-          const isSupported = await navigator.xr.isSessionSupported('immersive-vr');
+          const isSupported = await (navigator as any).xr.isSessionSupported('immersive-vr');
           if (isSupported) {
-            const session = await navigator.xr.requestSession('immersive-vr');
+            const session = await (navigator as any).xr.requestSession('immersive-vr');
             // Initialize VR scene
             initializeVRScene(session);
           }
@@ -125,7 +126,7 @@ export default function VRContentViewer({}: VRContentViewerProps) {
   const load3DModel = (model: VR3DModel, scene: any) => {
     // Load 3D model using Three.js
     const loader = new THREE.GLTFLoader();
-    loader.load(model.modelUrl, (gltf) => {
+    loader.load(model.modelUrl, (gltf: any) => {
       const object = gltf.scene;
       object.position.set(
         object.position.x || 0,
@@ -165,7 +166,7 @@ export default function VRContentViewer({}: VRContentViewerProps) {
     try {
       // Like the content
       await vrContentService.updateVRContent(vrContent._id, { 
-        likes: (vrContent as any).likes + 1 
+        title: vrContent.title 
       });
     } catch (err) {
       console.error('Failed to like content:', err);
