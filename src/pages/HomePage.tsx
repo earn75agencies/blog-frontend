@@ -173,7 +173,7 @@ const HomePage = () => {
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredPosts.map((post) => (
+            {featuredPosts.map((post: any) => (
               <motion.div key={post._id} variants={itemVariants}>
                 <PostCard post={post} featured />
               </motion.div>
@@ -203,7 +203,7 @@ const HomePage = () => {
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {categories.slice(0, 6).map((category, idx) => (
+            {categories.slice(0, 6).map((category: any, idx: number) => (
               <motion.div key={category._id} variants={itemVariants}>
                 <Link
                   to={`/category/${category.slug}`}
@@ -254,7 +254,7 @@ const HomePage = () => {
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {latestPosts.posts.map((post) => (
+            {latestPosts.posts.map((post: any) => (
               <motion.div key={post._id} variants={itemVariants}>
                 <PostCard post={post} />
               </motion.div>

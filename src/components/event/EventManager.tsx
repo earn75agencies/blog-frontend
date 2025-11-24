@@ -18,7 +18,7 @@ const EventManager: React.FC<EventManagerProps> = ({ userId }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [selectedFormat, setSelectedFormat] = useState('');
-  const [priceRange, setPriceRange] = useState<string>('all');
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const EventManager: React.FC<EventManagerProps> = ({ userId }) => {
         category: selectedCategory,
         type: selectedType,
         format: selectedFormat,
-        free: priceRange === 'free',
+        free: priceRange[0] === 0,
       });
       setEvents(response.events);
     } catch (error) {

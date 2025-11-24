@@ -63,7 +63,7 @@ const { data, isLoading, error } = useQuery(
             Found {data.pagination?.total || data.posts.length} results
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.posts.map((post) => (
+            {data.posts.map((post: any) => (
               <PostCard key={post._id} post={post} />
             ))}
           </div>
