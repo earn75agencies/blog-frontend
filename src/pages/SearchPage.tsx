@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { useTranslation } from 'react-i18next';
-import postService from '../services/post.service';
+import { searchAPI } from '../api/services';
 import PostCard from '../components/post/PostCard';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import Pagination from '../components/ui/Pagination';
@@ -15,9 +15,9 @@ const SearchPage = () => {
   const query = searchParams.get('q') || '';
   const [page, setPage] = useState(1);
 
-  const { data, isLoading, error } = useQuery(
+const { data, isLoading, error } = useQuery(
     ['search', query, page],
-    () => postService.searchPosts(query, { page, limit: 12 }),
+    () => searchAPI.searchPosts(query, { page, limit: 12 }),
     { enabled: !!query }
   );
 

@@ -1,0 +1,526 @@
+.gamification-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.gamification-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-size: 18px;
+  color: #666;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.dashboard-tabs {
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 30px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.tab-button:hover {
+  color: #333;
+}
+
+.tab-button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.dashboard-content {
+  min-height: 400px;
+}
+
+.overview-tab {
+  display: grid;
+  gap: 30px;
+}
+
+.level-progress {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.level-progress h3 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.progress-bar {
+  position: relative;
+  height: 30px;
+  background: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.5s ease;
+  border-radius: 15px;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.recent-achievements,
+.active-challenges {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recent-achievements h3,
+.active-challenges h3 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.achievement-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateX(5px);
+}
+
+.achievement-card.detailed {
+  flex-direction: column;
+  text-align: center;
+  border-left: none;
+  border: 2px solid #e0e0e0;
+}
+
+.badge-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.badge-icon.large {
+  width: 80px;
+  height: 80px;
+  margin-right: 0;
+  margin-bottom: 15px;
+}
+
+.badge-icon img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.badge-icon.large img {
+  width: 50px;
+  height: 50px;
+}
+
+.achievement-info {
+  flex: 1;
+}
+
+.achievement-info h4 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.achievement-info p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.achievement-details {
+  text-align: center;
+}
+
+.achievement-details h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+.achievement-meta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+  font-size: 0.8rem;
+}
+
+.category,
+.points,
+.rarity {
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #e0e0e0;
+  color: #666;
+}
+
+.challenges-list {
+  display: grid;
+  gap: 15px;
+}
+
+.challenge-card {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  transition: border-color 0.3s ease;
+}
+
+.challenge-card:hover {
+  border-color: #667eea;
+}
+
+.challenge-card.detailed {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.challenge-header h4 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.challenge-type {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  background: #667eea;
+  color: white;
+}
+
+.type.daily { background: #27ae60; }
+.type.weekly { background: #3498db; }
+.type.monthly { background: #e74c3c; }
+.type.special { background: #f39c12; }
+
+.challenge-card p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.challenge-reward {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.points {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.reward-badge {
+  width: 30px;
+  height: 30px;
+}
+
+.challenge-requirements {
+  margin: 15px 0;
+}
+
+.challenge-requirements h4 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.challenge-requirements ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.challenge-requirements li {
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.challenge-progress {
+  margin: 15px 0;
+}
+
+.join-challenge-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.join-challenge-btn:hover {
+  transform: scale(1.05);
+}
+
+.challenge-rewards {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.badge-reward {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-reward img {
+  width: 25px;
+  height: 25px;
+}
+
+.badge-reward span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.leaderboard-controls {
+  margin-bottom: 20px;
+}
+
+.leaderboard-controls select {
+  padding: 8px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+}
+
+.your-position {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.your-position h3 {
+  margin: 0 0 15px 0;
+}
+
+.position-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rank {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.username {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.points {
+  opacity: 0.9;
+}
+
+.leaderboard-list {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-entry {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.leaderboard-entry:hover {
+  background-color: #f8f9fa;
+}
+
+.leaderboard-entry.current-user {
+  background-color: #e8f4fd;
+  border-left: 4px solid #667eea;
+}
+
+.leaderboard-entry .rank {
+  width: 40px;
+  font-weight: bold;
+  color: #666;
+}
+
+.leaderboard-entry .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.leaderboard-entry .stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+}
+
+.leaderboard-entry .stats .points {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.leaderboard-entry .stats .level {
+  color: #667eea;
+}
+
+.leaderboard-entry .stats .badges {
+  color: #f39c12;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .challenges-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-tabs {
+    overflow-x: auto;
+  }
+  
+  .tab-button {
+    white-space: nowrap;
+  }
+  
+  .leaderboard-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .leaderboard-entry .stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

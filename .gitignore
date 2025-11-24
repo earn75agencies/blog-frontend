@@ -1,3 +1,10 @@
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
 # Logs
 logs
 *.log
@@ -7,23 +14,39 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
 dist-ssr
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-   uploads/
-.env
-node_modules/
-dist/
-.vscode/
+*~
+
+# OS generated files
+Thumbs.db
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Test coverage
+coverage/
+*.lcov
+
+# Temporary files
+tmp/
+temp/

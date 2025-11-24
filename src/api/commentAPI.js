@@ -20,6 +20,22 @@ export const commentAPI = {
   // Like/unlike comment
   toggleLikeComment: (postId, commentId) => 
     api.post(`/posts/${postId}/comments/${commentId}/like`),
+    
+  // Get comment replies
+  getReplies: (commentId, params = {}) => 
+    api.get(`/comments/${commentId}/replies`, { params }),
+    
+  // Reply to comment
+  replyToComment: (commentId, replyData) => 
+    api.post(`/comments/${commentId}/reply`, replyData),
+    
+  // Report comment
+  reportComment: (postId, commentId, reason) => 
+    api.post(`/posts/${postId}/comments/${commentId}/report`, { reason }),
+    
+  // Get user comments
+  getUserComments: (userId, params = {}) => 
+    api.get(`/comments/user/${userId}`, { params }),
 };
 
 export default commentAPI;

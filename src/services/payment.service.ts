@@ -24,6 +24,11 @@ interface Payment {
   };
   createdAt: string;
   updatedAt: string;
+  // Gidix Organization fields
+  paymentProcessor?: string;
+  paymentRecipient?: string;
+  supportContact?: string;
+  processedBy?: string;
 }
 
 interface PaymentsResponse {
@@ -31,6 +36,13 @@ interface PaymentsResponse {
   currentPage: number;
   totalPages: number;
   totalPayments: number;
+  paymentProcessor?: string;
+  organizationInfo?: {
+    name: string;
+    contactEmail: string;
+    supportUrl: string;
+    paymentPolicy: string;
+  };
 }
 
 class PaymentService {

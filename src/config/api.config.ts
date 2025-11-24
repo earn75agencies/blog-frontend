@@ -269,6 +269,96 @@ export const API_ENDPOINTS = {
   CONTACT: {
     SEND: () => `${API_BASE_URL}/contact`,
   },
+
+  // VR/AR Content
+  VR: {
+    CONTENT: {
+      CREATE: () => `${API_BASE_URL}/vr-content`,
+      GET: (id: string) => `${API_BASE_URL}/vr-content/${id}`,
+      UPDATE: (id: string) => `${API_BASE_URL}/vr-content/${id}`,
+      DELETE: (id: string) => `${API_BASE_URL}/vr-content/${id}`,
+      USER: (userId: string) => `${API_BASE_URL}/vr-content/user/${userId}`,
+      MINE: () => `${API_BASE_URL}/vr-content/mine`,
+      ADD_3D_MODEL: (id: string) => `${API_BASE_URL}/vr-content/${id}/3d-model`,
+      GET_3D_MODELS: (id: string) => `${API_BASE_URL}/vr-content/${id}/3d-models`,
+      UPDATE_3D_MODEL: (id: string) => `${API_BASE_URL}/vr-content/3d-model/${id}`,
+      DELETE_3D_MODEL: (id: string) => `${API_BASE_URL}/vr-content/3d-model/${id}`,
+      ADD_SPATIAL_AUDIO: (id: string) => `${API_BASE_URL}/vr-content/${id}/spatial-audio`,
+      GET_SPATIAL_AUDIO: (id: string) => `${API_BASE_URL}/vr-content/${id}/spatial-audio`,
+      UPDATE_SPATIAL_AUDIO: (id: string) => `${API_BASE_URL}/vr-content/spatial-audio/${id}`,
+      DELETE_SPATIAL_AUDIO: (id: string) => `${API_BASE_URL}/vr-content/spatial-audio/${id}`,
+      FEATURED: () => `${API_BASE_URL}/vr-content/featured`,
+      TRENDING: (timeframe: string) => `${API_BASE_URL}/vr-content/trending?timeframe=${timeframe}`,
+      SEARCH: () => `${API_BASE_URL}/vr-content/search`,
+      ANALYTICS: (id: string) => `${API_BASE_URL}/vr-content/${id}/analytics`,
+      UPDATE_SETTINGS: (id: string) => `${API_BASE_URL}/vr-content/${id}/settings`,
+      CHECK_COMPATIBILITY: () => `${API_BASE_URL}/vr-content/compatibility`,
+    },
+  },
+
+  // Gamification
+  GAMIFICATION: {
+    USER_STATS: (userId: string) => `${API_BASE_URL}/gamification/user-stats/${userId}`,
+    ACHIEVEMENTS: (userId: string) => `${API_BASE_URL}/gamification/achievements/${userId}`,
+    LEADERBOARD: () => `${API_BASE_URL}/gamification/leaderboard`,
+    BADGES: () => `${API_BASE_URL}/gamification/badges`,
+    CHALLENGES: () => `${API_BASE_URL}/gamification/challenges`,
+    USER_CHALLENGES: (userId: string) => `${API_BASE_URL}/gamification/user-challenges/${userId}`,
+    REWARDS: () => `${API_BASE_URL}/gamification/rewards`,
+    USER_REWARDS: (userId: string) => `${API_BASE_URL}/gamification/user-rewards/${userId}`,
+    TRACK_ACTIVITY: () => `${API_BASE_URL}/gamification/track-activity`,
+    POINTS_HISTORY: (userId: string) => `${API_BASE_URL}/gamification/points-history/${userId}`,
+    STREAK: (userId: string) => `${API_BASE_URL}/gamification/streak/${userId}`,
+    COMPARE: (userId1: string, userId2: string) => `${API_BASE_URL}/gamification/compare/${userId1}/${userId2}`,
+    NOTIFICATIONS: (userId: string) => `${API_BASE_URL}/gamification/notifications/${userId}`,
+  },
+
+  // Podcasts
+  PODCASTS: {
+    LIST: () => `${API_BASE_URL}/podcasts`,
+    GET: (id: string) => `${API_BASE_URL}/podcasts/${id}`,
+    CREATE: () => `${API_BASE_URL}/podcasts`,
+    UPDATE: (id: string) => `${API_BASE_URL}/podcasts/${id}`,
+    DELETE: (id: string) => `${API_BASE_URL}/podcasts/${id}`,
+    EPISODES: (id: string) => `${API_BASE_URL}/podcasts/${id}/episodes`,
+    ANALYTICS: (id: string) => `${API_BASE_URL}/podcasts/${id}/analytics`,
+  },
+
+  // Courses
+  COURSES: {
+    LIST: () => `${API_BASE_URL}/courses`,
+    GET: (id: string) => `${API_BASE_URL}/courses/${id}`,
+    CREATE: () => `${API_BASE_URL}/courses`,
+    UPDATE: (id: string) => `${API_BASE_URL}/courses/${id}`,
+    DELETE: (id: string) => `${API_BASE_URL}/courses/${id}`,
+    LESSONS: (id: string) => `${API_BASE_URL}/courses/${id}/lessons`,
+    ENROLL: (id: string) => `${API_BASE_URL}/courses/${id}/enroll`,
+    PROGRESS: (id: string) => `${API_BASE_URL}/courses/${id}/progress`,
+    CERTIFICATE: (id: string) => `${API_BASE_URL}/courses/${id}/certificate`,
+  },
+
+  // Events
+  EVENTS: {
+    LIST: () => `${API_BASE_URL}/events`,
+    GET: (id: string) => `${API_BASE_URL}/events/${id}`,
+    CREATE: () => `${API_BASE_URL}/events`,
+    UPDATE: (id: string) => `${API_BASE_URL}/events/${id}`,
+    DELETE: (id: string) => `${API_BASE_URL}/events/${id}`,
+    REGISTER: (id: string) => `${API_BASE_URL}/events/${id}/register`,
+    CANCEL_REGISTRATION: (id: string) => `${API_BASE_URL}/events/${id}/register`,
+    ATTENDEES: (id: string) => `${API_BASE_URL}/events/${id}/attendees`,
+  },
+
+  // Communities
+  COMMUNITIES: {
+    LIST: () => `${API_BASE_URL}/communities`,
+    GET: (id: string) => `${API_BASE_URL}/communities/${id}`,
+    CREATE: () => `${API_BASE_URL}/communities`,
+    JOIN: (id: string) => `${API_BASE_URL}/communities/${id}/join`,
+    LEAVE: (id: string) => `${API_BASE_URL}/communities/${id}/leave`,
+    POSTS: (id: string) => `${API_BASE_URL}/communities/${id}/posts`,
+    MEMBERS: (id: string) => `${API_BASE_URL}/communities/${id}/members`,
+  },
 };
 
 // Helper function to get current API base URL

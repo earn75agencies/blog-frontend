@@ -2,19 +2,18 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
-import postService from '../services/post.service';
+import { postAPI, categoryAPI } from '../api/services';
 import PostCard from '../components/post/PostCard';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { FiArrowRight, FiBookOpen, FiUsers, FiTrendingUp, FiGlobe } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import categoryService from '../services/category.service';
 
 const HomePage = () => {
   const { t } = useTranslation();
 
   const { data: featuredPosts, isLoading: isLoadingFeatured, error: featuredError } = useQuery(
     'featuredPosts',
-    () => postService.getFeaturedPosts(3),
+    () => postAPI.getFeaturedPosts({ limit: 3 }),
     {
       retry: 1,
       refetchOnWindowFocus: false,
@@ -26,7 +25,7 @@ const HomePage = () => {
 
   const { data: latestPosts, isLoading: isLoadingLatest, error: latestError } = useQuery(
     'latestPosts',
-    () => postService.getPosts({ page: 1, limit: 6, sortBy: 'publishedAt', sortOrder: 'desc' }),
+    () => postAPI.getPosts({ page: 1, limit: 6, sortBy: 'publishedAt', sortOrder: 'desc' }),
     {
       retry: 1,
       refetchOnWindowFocus: false,
@@ -38,7 +37,7 @@ const HomePage = () => {
 
   const { data: categories } = useQuery(
     'homeCategories',
-    () => categoryService.getCategories({ limit: 6 }),
+    () => categoryAPI.getCategories({ limit: 6 }),
     {
       retry: 1,
       refetchOnWindowFocus: false,

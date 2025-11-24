@@ -6,6 +6,7 @@ import LoadingSpinner from '../components/ui/LoadingSpinner';
 import Card from '../components/ui/Card';
 import Badge from '../components/ui/Badge';
 import Pagination from '../components/ui/Pagination';
+import GidixPaymentInfo from '../components/payment/GidixPaymentInfo';
 import { FiCreditCard, FiCheckCircle, FiXCircle, FiClock } from 'react-icons/fi';
 
 interface Payment {
@@ -16,6 +17,16 @@ interface Payment {
   description: string;
   createdAt: string;
   method: string;
+  paymentProcessor?: string;
+  paymentRecipient?: string;
+  supportContact?: string;
+  processedBy?: string;
+  organizationInfo?: {
+    name: string;
+    contactEmail: string;
+    supportUrl: string;
+    paymentPolicy: string;
+  };
 }
 
 const PaymentsPage = () => {
@@ -31,6 +42,7 @@ const PaymentsPage = () => {
 
   const payments = data?.data?.payments || [];
   const pagination = data?.data;
+  const organizationInfo = data?.data?.organizationInfo;
 
   if (isLoading) {
     return (
@@ -81,6 +93,12 @@ const PaymentsPage = () => {
         </div>
       </div>
 
+      {/* Gidix Organization Info Banner */}
+      <GidixPaymentInfo 
+        organizationInfo={organizationInfo}
+        className="mb-8"
+      />
+
       {payments && payments.length > 0 ? (
         <>
           <div className="space-y-4">
@@ -98,6 +116,16 @@ const PaymentsPage = () => {
                       </p>
                       {payment.transactionId && (
                         <p className="text-xs text-gray-400 mt-1">Transaction: {payment.transactionId}</p>
+                      )}
+                      {payment.paymentProcessor && (
+                        <p className="text-xs text-blue-600 mt-1 font-medium">
+                          Processed by: {payment.paymentProcessor}
+                        </p>
+                      )}
+                      {payment.paymentRecipient && (
+                        <p className="text-xs text-green-600 mt-1">
+                          Recipient: {payment.paymentRecipient}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -124,10 +152,13 @@ const PaymentsPage = () => {
             </div>
           )}
         </>
-      ) : (
+       ) : (
         <div className="card text-center py-12">
           <FiCreditCard className="text-6xl text-gray-400 mx-auto mb-4" />
           <p className="text-gray-500 text-lg mb-4">No payments found.</p>
+          <GidixPaymentInfo 
+            className="max-w-md mx-auto"
+          />
         </div>
       )}
     </div>
